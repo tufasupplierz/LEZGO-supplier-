@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LEGO supplier contact — €10</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="brand">LEGO supplier contact</h1>
+      <p class="tagline">Verified wholesale contact — Price: €10</p>
+    </div>
+  </header>
+
+  <main class="wrap main">
+    <section class="card">
+      <div class="grid">
+        <div class="media">
+          <figure class="img-wrap">
+            <img src="images/1.png" alt="Supplier screenshot" loading="lazy">
+            <figcaption>Screenshot: supplier chat / confirmation</figcaption>
+          </figure>
+          <figure class="img-wrap">
+            <img src="images/2.jpg" alt="LEGO product photo" loading="lazy">
+            <figcaption>Example product from supplier</figcaption>
+          </figure>
+        </div>
+
+        <div class="details">
+          <h2>What you get</h2>
+          <p class="lead">Full supplier contact delivered by email after payment verification.</p>
+
+          <div class="price-box">
+            <div class="price">€10</div>
+            <div class="pay-method">PayPal — Friends & Family to: <strong>bogarviktor0302@gmail.com</strong></div>
+            <p class="warning"><strong>Important:</strong> Friends &amp; Family provides NO buyer protection. For buyer protection use PayPal Goods &amp; Services.</p>
+          </div>
+
+          <ol class="steps">
+            <li>Send €10 to <code>bogarviktor0302@gmail.com</code> via PayPal Friends &amp; Family.</li>
+            <li>Put your email and GitHub username (or name) in the PayPal note field so the seller can identify you.</li>
+            <li>Copy the PayPal transaction ID (TXN ID) and paste it in the form below. Click "Submit payment info". The seller will verify and email the contact.</li>
+          </ol>
+
+          <form id="delivery-form" class="form" action="/manual-deliver" method="post" autocomplete="off">
+            <label for="payer_email">Your email (for delivery)</label>
+            <input id="payer_email" name="payer_email" type="email" required placeholder="you@example.com">
+
+            <label for="txn_id">PayPal transaction ID (TXN ID)</label>
+            <input id="txn_id" name="txn_id" type="text" required placeholder="e.g. 9A12345678901234">
+
+            <label for="message">Optional message / GitHub username</label>
+            <input id="message" name="message" type="text" placeholder="GitHub username or note">
+
+            <div class="form-foot">
+              <button class="btn primary" type="submit">Submit payment info</button>
+              <button class="btn ghost" type="button" id="copy-sample">Copy sample email</button>
+            </div>
+
+            <p class="small">Note to seller: verify TXN manually in PayPal if using Friends &amp; Family, or use IPN automation for Goods &amp; Services.</p>
+          </form>
+
+          <div class="what-buyer-receives">
+            <h3>Sample delivery email</h3>
+            <pre>Supplier's contact on Whatsapp: +85264868128
+Supplier's weidian link: https://weidian.com/?userid=1795977213&spider_token=db37</pre>
+            <p class="small">Please confirm you can reach the supplier within 48 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card policy">
+      <h3>Delivery & refund policy</h3>
+      <ul>
+        <li>Delivery: supplier contact emailed within 24 hours of verified payment.</li>
+        <li>Refund: if contact is proven invalid/unreachable within 48 hours after delivery, the seller will review refund options.</li>
+        <li>Usage: buyer agrees not to spam and to use the contact responsibly.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Seller note: keep written proof of supplier permission to share contact.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Small client-side helpers
+    document.getElementById('copy-sample').addEventListener('click', function(){
+      const sample = "Supplier's contact on Whatsapp: +85264868128\nSupplier's weidian link: https://weidian.com/?userid=1795977213&spider_token=db37";
+      navigator.clipboard?.writeText(sample).then(function(){
+        alert('Sample email copied to clipboard.');
+      }, function(){
+        alert('Copy failed. Please select and copy manually.');
+      });
+    });
+
+    // Graceful fallback for static hosting: if you host without server, you can replace form action with a mailto: or a form service.
+  </script>
+</body>
+</html>
